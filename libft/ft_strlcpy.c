@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/09 11:45:18 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/10 11:52:46 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	size_t	i;
+	size_t	src_len;
+
+	i = 0;
+	src_len = ft_strlen(src);
+	if (size < 1)
+		return (src_len);
+	while (src[i] && i < (size - 1))
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
+	return (src_len);
 }

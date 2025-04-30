@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/08 13:28:34 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/21 09:41:26 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	size_t			i;
+	unsigned char	*dest2;
+	unsigned char	*src2;
+
+	dest2 = (unsigned char *)dest;
+	src2 = (unsigned char *)src;
+	if (!dest && !src)
+		return (dest);
+	if (dest > src)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		while (n-- > 0)
+			dest2[n] = src2[n];
 	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			dest2[i] = src2[i];
+			i++;
+		}
+	}
+	return (dest);
 }

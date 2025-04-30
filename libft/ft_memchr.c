@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/08 12:42:52 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/11 15:22:54 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		if (ptr[i] == (unsigned char)c)
+			return (&ptr[i]);
+		i++;
 	}
+	return (0);
 }

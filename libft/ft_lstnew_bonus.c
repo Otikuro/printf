@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/14 13:15:33 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/15 08:24:18 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+t_list	*ft_lstnew(void *content)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
-	{
-		ft_print_char(*str, output_len);
-		str++;
-	}
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

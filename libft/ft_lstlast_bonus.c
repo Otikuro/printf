@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/14 13:32:11 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/15 10:03:35 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	if (lst == NULL)
+		return (NULL);
+	while (lst)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
+	return (lst);
 }

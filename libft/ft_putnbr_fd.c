@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/10 15:08:29 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/21 09:42:06 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	long	num;
+
+	num = n;
+	if (num < 0)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		ft_putchar_fd('-', fd);
+		num = -num;
 	}
+	if (num > 9)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd(((num % 10) + '0'), fd);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/12 17:20:15 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/14 13:20:54 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		(*f)(i, &s[i]);
+		i++;
 	}
 }

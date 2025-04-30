@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/09 13:30:17 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/14 12:38:07 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+char	*ft_strdup(char *s)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	int		i;
+	char	*copy;
+
+	i = 0;
+	copy = (char *)malloc(ft_strlen(s) + 1);
+	if (!copy)
+		return (NULL);
+	while (s[i])
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		copy[i] = s[i];
+		i++;
 	}
+	copy[i] = '\0';
+	return (copy);
 }

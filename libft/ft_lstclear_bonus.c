@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/14 13:35:05 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/16 13:17:17 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	t_list	*next_node;
+
+	if (lst == NULL || del == NULL)
+		return ;
+	while (*lst)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		next_node = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = next_node;
 	}
+	lst = NULL;
 }

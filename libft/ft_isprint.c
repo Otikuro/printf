@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/08 10:46:11 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/09 13:39:22 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_print_str(char *str, int *output_len)
+int	ft_isprint(int c)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
-	{
-		ft_print_char(*str, output_len);
-		str++;
-	}
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

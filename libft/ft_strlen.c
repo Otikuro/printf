@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/07 12:51:58 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/10 11:52:52 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+size_t	ft_strlen(const char *string)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
-	{
-		ft_print_char(*str, output_len);
-		str++;
-	}
+	size_t	i;
+
+	i = 0;
+	while (string[i])
+		i++;
+	return (i);
 }

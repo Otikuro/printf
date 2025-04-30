@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/08 10:50:15 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/14 13:38:14 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_print_str(char *str, int *output_len)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	char	*ubication;
+	int		i;
+
+	ubication = 0;
+	i = 0;
+	while (s[i])
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		if (s[i] == (char)c)
+			ubication = (char *)&s[i];
+		i++;
 	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (ubication);
 }

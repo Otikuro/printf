@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/14 13:35:46 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/15 11:33:18 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_print_str(char *str, int *output_len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (str == NULL)
-		str = "(null)";
-	while (*str)
+	if (lst == NULL)
+		return ;
+	while (lst)
 	{
-		ft_print_char(*str, output_len);
-		str++;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
 }
