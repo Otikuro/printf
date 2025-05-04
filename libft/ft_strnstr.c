@@ -16,14 +16,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	haystack_len;
 	size_t	needle_len;
 
 	i = 0;
-	haystack_len = ft_strlen(big);
 	needle_len = ft_strlen(little);
-	if (len < 0)
-		len = haystack_len;
 	if (needle_len == 0)
 		return ((char *)big);
 	while (big[i] && (i < len))

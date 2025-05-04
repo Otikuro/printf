@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include "libft/libft.h"
 
 void	ft_print_char(char c, int *out_len);
 void	ft_print_nbr(int nbr, int *out_len);

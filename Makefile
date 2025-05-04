@@ -13,21 +13,22 @@ LIBFT_ROUTE = $(LIBFT_DIR)/libft.a
 AR = ar rcs
 
 # "all" call the $(NAME) target
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	cp $(LIBFT_DIR) .
-	$(AR) $@ $^
+$(NAME): $(LIBFT_ROUTE) $(OBJS)
+	cp libft/libft.a .
+	mv libft.a $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR) 
+$(LIBFT_ROUTE):
+	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c $(DEPS)
-	$(COMPILER) $(FLAGS) -c $< -o $@
+%.o: %.c
+	$(COMPILER) $(FLAGS) -I. -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
@@ -35,4 +36,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

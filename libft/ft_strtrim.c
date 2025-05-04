@@ -31,11 +31,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		start;
 	int		end;
-	int		i;
 
 	start = 0;
 	end = ft_strlen(s1) - 1;
-	i = 0;
 	if (!s1 || !set)
 		return (0);
 	while (s1[start] && !ft_is_valid(s1[start], set))

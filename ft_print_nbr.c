@@ -14,15 +14,9 @@
 
 void	ft_print_nbr(int nbr, int *output_len)
 {
-	long	num;
+	char	*str;
 
-	num = nbr;
-	if (num < 0)
-	{
-		ft_print_char('-', output_len);
-		num = -num;
-	}
-	if (num > 9)
-		ft_print_nbr(num / 10, output_len);
-	ft_print_char(((num % 10) + '0'), output_len);
+	str = ft_itoa(nbr);
+	ft_print_str(str, output_len);
+	free(str);
 }
