@@ -6,14 +6,14 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:49:01 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:49:05 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:22:49 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_char(char c, int *output_len)
+void	ft_print_char(char c, int *out_len)
 {
 	write(1, &c, 1);
-	(*output_len)++;
+	(*out_len)++;
 }

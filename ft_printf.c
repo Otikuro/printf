@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:35:36 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 19:57:36 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/05 10:15:05 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,16 @@ void	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 		ft_print_char(va_arg(args, int), out_len);
 	else if (str[*i + 1] == 's')
 		ft_print_str(va_arg(args, char *), out_len);
-	//else if (str[*i + 1] == 'p')
+	else if (str[*i + 1] == 'p')
+		ft_print_ptr(va_arg(args, unsigned int), out_len);
 	else if (str[*i + 1] == 'd' || str[*i + 1] == 'i')
-		ft_print_nbr(va_arg(args, int), out_len);
-	//else if (str[*i + 1] == 'u')
-	//else if (str[*i + 1] == 'x')
-	//else if (str[*i + 1] == 'X')
+		ft_print_nbr((long)va_arg(args, int), out_len);
+	else if (str[*i + 1] == 'u')
+		ft_print_nbr((long)va_arg(args, unsigned int), out_len);
+	else if (str[*i + 1] == 'x')
+		ft_print_hex(va_arg(args, unsigned int), out_len, 0);
+	else if (str[*i + 1] == 'X')
+		ft_print_hex(va_arg(args, unsigned int), out_len, 1);
 	else if (str[*i + 1] == '%')
 		ft_print_char('%', out_len);
 	(*i)++;
@@ -52,9 +56,3 @@ int	ft_printf(char const *str, ...)
 	}
 	return (out_len);
 }
-
-// int	main(void)
-// {
-// 	printf("%d\n", ft_printf("ab%c%%\n", 'a'));
-// 	return (0);
-// }

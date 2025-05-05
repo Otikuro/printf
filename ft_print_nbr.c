@@ -6,17 +6,17 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:37:02 by juamanri          #+#    #+#             */
-/*   Updated: 2025/04/28 20:06:41 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/05 10:12:57 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_nbr(int nbr, int *output_len)
+void	ft_print_nbr(long nbr, int *out_len)
 {
 	char	*str;
 
-	str = ft_itoa(nbr);
-	ft_print_str(str, output_len);
+	str = ft_nbr_to_ascii(nbr);
+	ft_print_str(str, out_len);
 	free(str);
 }

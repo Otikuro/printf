@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 20:27:42 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 10:15:00 by juamanri         ###   ########.fr       */
+/*   Created: 2025/05/05 09:03:51 by juamanri          #+#    #+#             */
+/*   Updated: 2025/05/05 09:24:50 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_ptr(unsigned int ptr, int *out_len)
+void	ft_print_hex(unsigned int nbr, int *out_len, int is_upper)
 {
-	if (ptr == 0)
-		ft_print_str("(nil)", out_len);
+	char	*base;
+
+	if (is_upper)
+		base = "0123456789ABCDEF";
 	else
-	{
-		ft_print_str("0x", out_len);
-		ft_print_hex(ptr, out_len, 0);
-	}
+		base = "0123456789abcdef";
+	if (nbr >= 16)
+		ft_print_hex(nbr / 16, out_len, is_upper);
+	ft_print_char(base[nbr % 16], out_len);
 }
