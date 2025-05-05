@@ -1,22 +1,21 @@
 COMPILER = cc
 FLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
-DEPS = ft_printf.h
-FILES = ft_nbr_to_ascii.c \
-		ft_print_char.c \
-		ft_print_hex.c \
-		ft_print_nbr.c \
-		ft_print_ptr.c \
-		ft_print_str.c \
-		ft_printf.c \
+FILES = src/default/ft_nbr_to_ascii.c \
+		src/default/ft_print_char.c \
+		src/default/ft_print_hex.c \
+		src/default/ft_print_nbr.c \
+		src/default/ft_print_ptr.c \
+		src/default/ft_print_str.c \
+		src/default/ft_printf.c \
 
-FILES_BONUS = bonus/ft_print_nbr_bonus.c \
-			bonus/ft_printf_bonus.c \
-			ft_nbr_to_ascii.c \
-			ft_print_char.c \
-			ft_print_hex.c \
-			ft_print_ptr.c \
-			ft_print_str.c \
+FILES_BONUS = src/bonus/ft_print_nbr_bonus.c \
+			src/bonus/ft_printf_bonus.c \
+			src/default/ft_nbr_to_ascii.c \
+			src/default/ft_print_char.c \
+			src/default/ft_print_hex.c \
+			src/default/ft_print_ptr.c \
+			src/default/ft_print_str.c \
 
 OBJS = $(FILES:.c=.o)
 OBJS_BONUS = $(FILES_BONUS:.c=.o)

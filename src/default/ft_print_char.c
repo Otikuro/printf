@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 13:04:06 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 13:33:59 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/28 19:49:01 by juamanri          #+#    #+#             */
+/*   Updated: 2025/05/05 09:22:49 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf_bonus.h"
+#include "../../headers/ft_printf.h"
 
-int	main(void)
+void	ft_print_char(char c, int *out_len)
 {
-	ft_printf_bonus("aaa\n");
-	ft_printf_bonus("%+d\n", -1);
-	return (0);
+	write(1, &c, 1);
+	(*out_len)++;
 }

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 13:04:06 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 13:33:59 by juamanri         ###   ########.fr       */
+/*   Created: 2025/05/05 09:03:51 by juamanri          #+#    #+#             */
+/*   Updated: 2025/05/05 09:24:50 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf_bonus.h"
+#include "../../headers/ft_printf.h"
 
-int	main(void)
+void	ft_print_hex(unsigned int nbr, int *out_len, int is_upper)
 {
-	ft_printf_bonus("aaa\n");
-	ft_printf_bonus("%+d\n", -1);
-	return (0);
+	char	*base;
+
+	if (is_upper)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (nbr >= 16)
+		ft_print_hex(nbr / 16, out_len, is_upper);
+	ft_print_char(base[nbr % 16], out_len);
 }

@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_nbr_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 13:04:06 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 13:33:59 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/28 19:37:02 by juamanri          #+#    #+#             */
+/*   Updated: 2025/05/05 13:43:57 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf_bonus.h"
+#include "../../headers/ft_printf_bonus.h"
 
-int	main(void)
+void	ft_print_nbr_bonus(long nbr, int *out_len, int plus_sign)
 {
-	ft_printf_bonus("aaa\n");
-	ft_printf_bonus("%+d\n", -1);
-	return (0);
+	char	*str;
+
+	if (nbr >= 0 && plus_sign)
+		ft_print_char('+', out_len);
+	str = ft_nbr_to_ascii(nbr);
+	ft_print_str(str, out_len);
+	free(str);
 }

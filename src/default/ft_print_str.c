@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 13:04:06 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 13:33:59 by juamanri         ###   ########.fr       */
+/*   Created: 2025/04/28 19:51:13 by juamanri          #+#    #+#             */
+/*   Updated: 2025/04/28 19:52:54 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf_bonus.h"
+#include "../../headers/ft_printf.h"
 
-int	main(void)
+void	ft_print_str(char *str, int *output_len)
 {
-	ft_printf_bonus("aaa\n");
-	ft_printf_bonus("%+d\n", -1);
-	return (0);
+	if (str == NULL)
+		str = "(null)";
+	while (*str)
+	{
+		ft_print_char(*str, output_len);
+		str++;
+	}
 }
