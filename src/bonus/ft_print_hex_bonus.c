@@ -6,11 +6,11 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:03:51 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 12:55:13 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/06 13:43:32 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/ft_printf.h"
+#include "../../headers/ft_printf_bonus.h"
 
 void	ft_print_hex_bonus(
 	unsigned long nbr, int *out_len, int is_upper, int hash)
