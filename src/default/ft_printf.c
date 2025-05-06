@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:35:36 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/05 10:15:05 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:15:18 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 	else if (str[*i + 1] == 's')
 		ft_print_str(va_arg(args, char *), out_len);
 	else if (str[*i + 1] == 'p')
-		ft_print_ptr(va_arg(args, unsigned int), out_len);
+		ft_print_ptr(va_arg(args, unsigned long), out_len);
 	else if (str[*i + 1] == 'd' || str[*i + 1] == 'i')
 		ft_print_nbr((long)va_arg(args, int), out_len);
 	else if (str[*i + 1] == 'u')
