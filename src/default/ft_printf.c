@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:35:36 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 11:15:18 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/07 10:45:32 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_printf(char const *str, ...)
 	va_list	args;
 
 	if (str == NULL)
-		return (0);
+		return (-1);
 	i = 0;
 	out_len = 0;
 	va_start(args, str);

@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:50:02 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 11:17:37 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:41:59 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ void	ft_print_nbr(long nbr, int *out_len);
 void	ft_print_ptr(unsigned long ptr, int *out_len);
 void	ft_print_str(char *str, int *out_len);
 int		ft_printf(char const *str, ...);
-void	ft_format_handler(char const *str, int *i, int *out_len, va_list args);
 #endif

@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:50:02 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 13:45:10 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:34:42 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,15 @@
 # include <stdarg.h>
 # include "./ft_printf.h"
 
-void	ft_print_hex_bonus(unsigned long nbr, int *out_len, int is_upper, int hash);
-void	ft_print_nbr_bonus(long nbr, int *out_len, int blank, int plus);
+typedef struct s_options
+{
+	int	blank_signal;
+	int	plus_signal;
+	int	hash_signal;
+}	t_options;
+
+void	ft_print_hex_bonus(
+			unsigned long nbr, int *out_len, int is_upper, t_options *options);
+void	ft_print_nbr_bonus(long nbr, int *out_len, t_options *options);
 int		ft_printf_bonus(char const *str, ...);
 #endif

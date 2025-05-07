@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:35:36 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 12:23:13 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:42:44 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,48 +27,46 @@ int	ft_is_conversion(char c)
 	return (0);
 }
 
-void	ft_check_flags(char const *str, int *i, int *blank, int *plus, int *hash)
+void	ft_check_flags(char const *str, int *i, t_options *options)
 {
 	(*i)++;
 	while (!ft_is_conversion(str[*i]))
 	{
 		if (str[*i] == ' ')
-			*blank = 1;
+			options->blank_signal = 1;
 		else if (str[*i] == '+')
-			*plus = 1;
+			options->plus_signal = 1;
 		else if (str[*i] == '#')
-			*hash = 1;
+			options->hash_signal = 1;
 		(*i)++;
 	}
 }
 
-void	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
+int	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 {
-	int	blank;
-	int	plus;
-	int	hash;
+	t_options	*options;
 
-	blank = 0;
-	plus = 0;
-	hash = 0;
-	ft_check_flags(str, i, &blank, &plus, &hash);
-	if (str[*i] == 'c' && (!blank && !plus && !hash))
+	options = (t_options *)malloc(sizeof(t_options));
+	if (options == NULL)
+		return (0);
+	ft_check_flags(str, i, options);
+	if (str[*i] == 'c')
 		ft_print_char(va_arg(args, int), out_len);
-	else if (str[*i] == 's' && (!blank && !plus && !hash))
+	else if (str[*i] == 's')
 		ft_print_str(va_arg(args, char *), out_len);
-	else if (str[*i] == 'p' && (!blank && !plus && !hash))
+	else if (str[*i] == 'p')
 		ft_print_ptr(va_arg(args, unsigned long), out_len);
-	else if ((str[*i] == 'd' || str[*i] == 'i') && (!hash))
-		ft_print_nbr_bonus((long)va_arg(args, int), out_len, blank, plus);
-	else if (str[*i] == 'u' && (!blank && !plus && !hash))
-		ft_print_nbr_bonus((long)va_arg(args, unsigned int), out_len, 0, 0);
-	else if (str[*i] == 'x' && (!blank && !plus))
-		ft_print_hex_bonus(va_arg(args, unsigned int), out_len, 0, hash);
-	else if (str[*i] == 'X' && (!blank && !plus))
-		ft_print_hex_bonus(va_arg(args, unsigned int), out_len, 1, hash);
+	else if (str[*i] == 'd' || str[*i] == 'i')
+		ft_print_nbr_bonus((long)va_arg(args, int), out_len, options);
+	else if (str[*i] == 'u')
+		ft_print_nbr_bonus((long)va_arg(args, unsigned int), out_len, options);
+	else if (str[*i] == 'x')
+		ft_print_hex_bonus(va_arg(args, unsigned int), out_len, 0, options);
+	else if (str[*i] == 'X')
+		ft_print_hex_bonus(va_arg(args, unsigned int), out_len, 1, options);
 	else if (str[*i] == '%')
 		ft_print_char('%', out_len);
-	(*i)++;
+	return (1);
 }
 
 int	ft_printf_bonus(char const *str, ...)
@@ -78,17 +76,21 @@ int	ft_printf_bonus(char const *str, ...)
 	va_list	args;
 
 	if (str == NULL)
-		return (0);
+		return (-1);
 	i = 0;
 	out_len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
-			ft_format_handler(str, &i, &out_len, args);
+		{
+			if (!ft_format_handler(str, &i, &out_len, args))
+				return (-1);
+		}
 		else
 			ft_print_char(str[i], &out_len);
 		i++;
 	}
+	va_end(args);
 	return (out_len);
 }

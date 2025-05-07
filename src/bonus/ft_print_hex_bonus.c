@@ -6,20 +6,20 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:03:51 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/06 13:43:32 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/07 12:52:29 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ft_printf_bonus.h"
 
 void	ft_print_hex_bonus(
-	unsigned long nbr, int *out_len, int is_upper, int hash)
+	unsigned long nbr, int *out_len, int is_upper, t_options *options)
 {
 	char	*base;
 
-	if (hash && is_upper && nbr != 0)
+	if (options->hash_signal && is_upper && nbr != 0)
 		ft_print_str("0X", out_len);
-	if (hash && !is_upper && nbr != 0)
+	if (options->blank_signal && !is_upper && nbr != 0)
 		ft_print_str("0x", out_len);
 	if (is_upper)
 		base = "0123456789ABCDEF";
