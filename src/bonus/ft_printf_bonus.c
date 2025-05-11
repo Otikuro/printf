@@ -45,15 +45,15 @@ void	ft_check_flags(char const *str, int *i, t_options *options)
 int	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 {
 	t_options	*options;
-	int			width;
+	//int			width;
 
 	options = (t_options *)malloc(sizeof(t_options));
 	if (options == NULL)
 		return (0);
 	ft_check_flags(str, i, options);
-	width = ft_check_width(str, i);
-	if (width)
-		ft_fill_width(width, out_len);
+	//width = ft_check_width(str, i);
+	//if (width)
+	//	ft_fill_width(width, out_len);
 	if (str[*i] == 'c')
 		ft_print_char(va_arg(args, int), out_len);
 	else if (str[*i] == 's')

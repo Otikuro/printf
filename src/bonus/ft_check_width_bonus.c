@@ -1,7 +1,12 @@
 
 #include "../../headers/ft_printf_bonus.h"
 
-void	ft_check_width(char const *str, int *i)
+/* int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_check_width(char const *str, int *i)
 {
 	int	width;
 
@@ -25,4 +30,4 @@ void	ft_fill_width(int width, int *out_len)
 		ft_print_char(' ', out_len);
 		i++;
 	}
-}
+} */
