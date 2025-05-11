@@ -9,7 +9,8 @@ FILES = src/default/ft_nbr_to_ascii.c \
 		src/default/ft_print_str.c \
 		src/default/ft_printf.c \
 
-FILES_BONUS = src/bonus/ft_print_hex_bonus.c \
+FILES_BONUS = src/bonus/ft_check_width_bonus.c \
+			src/bonus/ft_print_hex_bonus.c \
 			src/bonus/ft_print_nbr_bonus.c \
 			src/bonus/ft_printf_bonus.c \
 			src/default/ft_nbr_to_ascii.c \

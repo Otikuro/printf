@@ -23,8 +23,8 @@ typedef struct s_options
 	int	hash_signal;
 }	t_options;
 
-//int		ft_check_width(char const *str, int *i)
-//void	ft_fill_width(int width, int *out_len);
+int		ft_check_width(char const *str, int *i);
+void	ft_fill_width(int width, int *out_len);
 void	ft_print_hex_bonus(
 			unsigned long nbr, int *out_len, int is_upper, t_options *options);
 void	ft_print_nbr_bonus(long nbr, int *out_len, t_options *options);

@@ -8,11 +8,11 @@ int	main(void)
 	printf("----------------PRINTF ORIGINAL----------------\n");
 	//BONUS ' '
 	printf("\t----------------' '----------------\n");
-	printf("%d\n", printf("% d", -1));
-	printf("%d\n", printf("% i", 0));
-	printf("%d\n", printf("% d", 1));
-	printf("%d\n", printf("a% d b", -2147483647));
-	printf("%d\n", printf("a% d b", 2147483647));
+	printf("%d\n", printf("% d\t", -1));
+	printf("%d\n", printf("% i\t", 0));
+	printf("%d\n", printf("% d\t", 1));
+	printf("%d\n", printf("a% d b\t", -2147483647));
+	printf("%d\n", printf("a% d b\t", 2147483647));
 	//BONUS '+'
 	printf("\t----------------'+'----------------\n");
 	printf("%d\n", printf("%+d", -1));
