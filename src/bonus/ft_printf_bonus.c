@@ -13,11 +13,11 @@
 #include "../../headers/ft_printf_bonus.h"
 #include <stdio.h>
 
-int	ft_is_conversion(char c)
+int	ft_is_flag(char c)
 {
 	char	*conversions;
 
-	conversions = "cspdiuxX%";
+	conversions = "+ #";
 	while (*conversions)
 	{
 		if (c == *conversions)
@@ -30,7 +30,7 @@ int	ft_is_conversion(char c)
 void	ft_check_flags(char const *str, int *i, t_options *options)
 {
 	(*i)++;
-	while (!ft_is_conversion(str[*i]))
+	while (ft_is_flag(str[*i]))
 	{
 		if (str[*i] == ' ')
 			options->blank_signal = 1;
@@ -45,11 +45,15 @@ void	ft_check_flags(char const *str, int *i, t_options *options)
 int	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 {
 	t_options	*options;
+	int			width;
 
 	options = (t_options *)malloc(sizeof(t_options));
 	if (options == NULL)
 		return (0);
 	ft_check_flags(str, i, options);
+	width = ft_check_width(str, i);
+	if (width)
+		ft_fill_width(width, out_len);
 	if (str[*i] == 'c')
 		ft_print_char(va_arg(args, int), out_len);
 	else if (str[*i] == 's')
@@ -66,10 +70,11 @@ int	ft_format_handler(char const *str, int *i, int *out_len, va_list args)
 		ft_print_hex_bonus(va_arg(args, unsigned int), out_len, 1, options);
 	else if (str[*i] == '%')
 		ft_print_char('%', out_len);
+	free(options);
 	return (1);
 }
 
-int	ft_printf_bonus(char const *str, ...)
+int	ft_printf(char const *str, ...)
 {
 	int		i;
 	int		out_len;
