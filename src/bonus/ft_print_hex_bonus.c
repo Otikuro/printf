@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 09:03:51 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/07 12:52:29 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/12 09:54:28 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_hex_bonus(
 
 	if (options->hash_signal && is_upper && nbr != 0)
 		ft_print_str("0X", out_len);
-	if (options->blank_signal && !is_upper && nbr != 0)
+	if (options->hash_signal && !is_upper && nbr != 0)
 		ft_print_str("0x", out_len);
 	if (is_upper)
 		base = "0123456789ABCDEF";
